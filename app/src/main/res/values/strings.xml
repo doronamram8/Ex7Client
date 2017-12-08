@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Ex7Client</string>
+    <string name="intro">This app demonstrates the call to other Activities in other applications using the intent object</string>
+    <string name="bt1">call</string>
+    <string name="bt2">surf</string>
+    <string name="bt3">eMail</string>
+    <string name="bt4">register</string>
+
+
+
+
+
 </resources>
