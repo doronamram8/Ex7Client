@@ -22,15 +22,15 @@ public class MainActivity extends Activity {
             Toast.makeText(this,"hello",Toast.LENGTH_LONG).show();
             switch (view.getId()){
                 case R.id.button: {
-                    if (checkSelfPermission( final Manifest.permission.CALL_PHONE)==PackageManager.PERMISSION_GRANTED)
+                    if (checkSelfPermission( Manifest.permission.CALL_PHONE)==PackageManager.PERMISSION_GRANTED)
                     {
                         EditText ed = (EditText) findViewById(R.id.editText);
                         String number = ed.getText().toString();
                         CallPhone(number);
                     }
-                    else{
+                    else
                     requestPermissions(new String[]{Manifest.permission.CALL_PHONE},MY_CALL_REQUEST);
-                    }
+
                     break;
                 }
                 case  R.id.button2:{
@@ -45,12 +45,14 @@ public class MainActivity extends Activity {
             }
         }
 
-        private void CallPhone(String Phonenumber){
+
+
+    @SuppressWarnings({"MissingPermission"})
+    private void CallPhone(String Phonenumber){
             String number =  Phonenumber ;
             Intent intent = new Intent(Intent.ACTION_CALL);
             intent.setData(Uri.parse("tel:" +number));
             startActivity(intent);
-
         }
 
     @Override
@@ -61,7 +63,7 @@ public class MainActivity extends Activity {
                 if(grantResults.length>0&&
                         permissions[0].equals(Manifest.permission.CALL_PHONE)&&
                         grantResults[0]==PackageManager.PERMISSION_GRANTED) {
-                    CallPhone();
+
                 }
 
                 break;
