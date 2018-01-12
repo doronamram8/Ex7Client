@@ -34,9 +34,23 @@ public class MainActivity extends Activity {
                     break;
                 }
                 case  R.id.button2:{
+                    String url = ((EditText)findViewById(R.id.editText2)).getText().toString();
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    if (!url.toLowerCase().contains("https://")){
+                        url="https://"+url;
+                    }
+                    i.setData(Uri.parse(url));
+                    startActivity(i);
+
                     break;
                 }
                 case R.id.button3:{
+                    Intent email = new Intent(Intent.ACTION_SEND);
+                    email.setType("text/html");
+                    email.putExtra(email.EXTRA_EMAIL,new String[]{((EditText)findViewById(R.id.editText3)).getText().toString()});
+                    email.putExtra(email.EXTRA_SUBJECT,"TEST");
+                    email.putExtra(email.EXTRA_TEXT,"WORK");
+                    startActivity(Intent.createChooser(email, "Choose an Email client :"));
                     break;
                 }
                 case R.id.button4:{
@@ -70,4 +84,6 @@ public class MainActivity extends Activity {
             }
         }
     }
+
+
 }
