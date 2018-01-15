@@ -5,6 +5,10 @@
     <string name="bt2">surf</string>
     <string name="bt3">eMail</string>
     <string name="bt4">register</string>
+    <string name="Welcome">
+    <item quantity="one">Welcome back %1$s %2$s %3$s</item>
+    </string>
+
 
 
 
